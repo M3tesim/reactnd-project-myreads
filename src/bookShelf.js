@@ -19,7 +19,7 @@ class BookShelf extends Component {
         
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">{currentState}</h2>
-                  <BookList/>
+                  <BookList books={this.state.books}  />
 
 
                 </div>

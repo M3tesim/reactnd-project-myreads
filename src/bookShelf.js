@@ -9,7 +9,7 @@ class BookShelf extends Component {
        books:[],
 
   }
-
+ 
    //this function shoul add all the books in the shelf to the stat array "books"
 
    Booklist = async ()=>{
@@ -25,14 +25,20 @@ componentDidMount = () => {
 }
 
     render(){
+      
 
-       const {shelf }= this.props;
-       console.log(this.state.books);
+       const {shelf}= this.props;
+
+       const bookshelf=this.state.
+        books.filter( book=> book.shelf === shelf.replace(/\s/g, ""))
+      
+       console.log(shelf.replace(/\s/g, ""));
+       console.log(bookshelf)
         return(
 
                 <div className="bookshelf">
-                  <h2 className="bookshelf-title">{shelf}</h2>
-                  <BookList books={this.state.books}  />
+                  <h2 className="bookshelf-title">{shelf.toUpperCase()}</h2>
+                  <BookList books={bookshelf}  />
 
 
                 </div>

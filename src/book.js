@@ -4,6 +4,7 @@ class Book extends Component {
      render() {
 
       const {book}=this.props
+     
         return(
 
             <div className="book">
@@ -19,7 +20,7 @@ class Book extends Component {
                               </select>
                             </div>
                           </div>
-                          <div className="book-title">To Kill a Mockingbird</div>
+                          <div className="book-title">{book.title}</div>
                           <div className="book-authors">{book.authors}</div>
                         </div>
         )

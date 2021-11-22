@@ -52,11 +52,11 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                <BookShelf  shelf="Currently Reading"  />
+                <BookShelf  shelf="currently Reading"  />
 
-                <BookShelf  shelf="Want to Read"  />
+                <BookShelf  shelf="want To Read"  />
 
-                <BookShelf  shelf="Read"  />
+                <BookShelf  shelf="read"  />
 
               
               </div>

@@ -24,11 +24,11 @@ class Library extends Component{
         </div>
         <div className="list-books-content">
           <div>
-            <BookShelf  appbooks={this.props.appbooks} shelf="currently Reading" books={books} ubdate={ubdate}  />
+            <BookShelf  appbooks={this.props.appbooks} shelf="currently Reading" books={books} ubdate={ubdate}  ShelfBooks={this.props.ShelfBooks}/>
 
-            <BookShelf appbooks={this.props.appbooks} shelf="want To Read" books={books} ubdate={ubdate} />
+            <BookShelf appbooks={this.props.appbooks} shelf="want To Read" books={books} ubdate={ubdate} ShelfBooks={this.props.ShelfBooks}/>
 
-            <BookShelf  appbooks={this.props.appbooks} shelf="read" books={books} ubdate={ubdate}  />
+            <BookShelf  appbooks={this.props.appbooks} shelf="read" books={books} ubdate={ubdate}  ShelfBooks={this.props.ShelfBooks}/>
 
           
           </div>

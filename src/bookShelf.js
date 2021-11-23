@@ -14,8 +14,7 @@ class BookShelf extends Component {
 
        const {shelf}= this.props;
 
-       const bookshelf=this.props.
-        books.filter( book=> book.shelf === shelf.replace(/\s/g, ""))
+       const bookshelf=this.props.ShelfBooks(shelf)
       
         return(
 

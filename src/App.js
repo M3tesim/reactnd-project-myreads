@@ -39,19 +39,27 @@ Booklist = async ()=>{
           return c;
         });
   
-        this.setState({
+          this.setState({
           books: updateShelf,
         });
         
   
-      })}
+      })
+    
+    
+    }
 
 // dynamicly ubdate the page content 
       componentDidMount = () => {
         this.Booklist();
       }
 
-                        
+      ShelfBooks=(shelf)=>{
+          this.Booklist();
+        
+      return this.state.books.filter( book=> book.shelf === shelf.replace(/\s/g, ""));
+      
+      }              
 
   render() {
 
@@ -63,7 +71,7 @@ Booklist = async ()=>{
            <Search  appbooks={this.state.books}  ubdate={this.UbdateShelf}   /> )}/>
 
        <Route exact path='/' render={()=>(
-         <Library appbooks={this.state.books}  books={this.state.books} ubdate={this.UbdateShelf} /> )} />
+         <Library appbooks={this.state.books} ShelfBooks={this.ShelfBooks}  books={this.state.books} ubdate={this.UbdateShelf} /> )} />
          
         
       </div>

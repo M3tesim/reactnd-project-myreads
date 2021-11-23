@@ -15,7 +15,6 @@ state={
 
 
  SearchBar = async(query)=> {
-   console.log(query)
      if (query.length > 0) {
    await BooksAPI.search(query).then(searshResult=>{
     
@@ -28,8 +27,9 @@ state={
       })
 
   }else {
-     this.setState({ books: [] ,
-      value:''   }
+   await  this.setState(
+       { books: [] ,
+        value:''   }
       )}
 }
 
@@ -47,7 +47,7 @@ state={
               <div className="search-books-input-wrapper">
 
                                 
-                <input type="text" placeholder="Search by title or author" value={this.state.value}  onChange={(e)=>this.SearchBar(e.target.value)}/>
+                <input type="text" placeholder="Search by title or author"  onChange={(e)=>this.SearchBar(e.target.value)}/>
 
               </div>
 

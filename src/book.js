@@ -12,7 +12,7 @@ class Book extends Component {
       const {book,appbooks}=this.props
 
       appbooks.map(b=>(
-        b.id === book.id ? book.shelf=b.shelf:book.shelf=book.shelf
+        b.id === book.id ? book.shelf=b.shelf:book.shelf
       ))
 
 
@@ -36,10 +36,10 @@ class Book extends Component {
       let authors 
       try {
 
-        if(authors=book.authors) throw  authors="Unkowen authors";
+      authors=book.authors
         
       }catch(e){
-       authors=""
+       authors="Unkowen authors"
 
       }
      
@@ -62,7 +62,7 @@ class Book extends Component {
                             </div>
                           </div>
                           <div className="book-title">{book.title}</div>
-                          <div className="book-authors">{book.authors}</div>
+                          <div className="book-authors">{authors}</div>
                         </div>
         )
     }

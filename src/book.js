@@ -10,12 +10,12 @@ class Book extends Component {
 
 
       const {book,appbooks}=this.props
-
+// this is to ubdate the search result shelf with the current data on our app , so user can recognise the books he have 
       appbooks.map(b=>(
         b.id === book.id ? book.shelf=b.shelf:book.shelf
       ))
 
-
+// handling search err
       let imgURL 
       try {
         imgURL=`url(${book.imageLinks.smallThumbnail })`

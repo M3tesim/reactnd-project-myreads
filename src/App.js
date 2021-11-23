@@ -53,8 +53,9 @@ Booklist = async ()=>{
       componentDidMount = () => {
         this.Booklist();
       }
-
+// this function get called from the bookShelf component , it makes new list of books for each individual shelf 
       ShelfBooks=(shelf)=>{
+        // have called the gitAll fun again so the main page ubdates when we add a new book from the search component
           this.Booklist();
         
       return this.state.books.filter( book=> book.shelf === shelf.replace(/\s/g, ""));

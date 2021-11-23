@@ -13,7 +13,7 @@ class BookShelf extends Component {
       
 
        const {shelf}= this.props;
-
+// creat a new list of books that only have this shelf
        const bookshelf=this.props.ShelfBooks(shelf)
       
         return(

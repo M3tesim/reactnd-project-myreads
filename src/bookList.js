@@ -7,7 +7,9 @@ class BookList extends Component {
     render(){
 
         const {books,ubdate,shelf} =this.props
-       
+
+
+       // when the value of the search input is empty the return will be "no result"
         return(
 
             <div className="bookshelf-books">

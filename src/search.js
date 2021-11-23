@@ -13,7 +13,7 @@ state={
 
 
 
-
+// search function that take an input and return array of data from the bookAPI
  SearchBar = async(query)=> {
      if (query.length > 0) {
    await BooksAPI.search(query).then(searshResult=>{
@@ -27,6 +27,7 @@ state={
       })
 
   }else {
+    //reset search results after 
    await  this.setState(
        { books: [] ,
         value:''   }

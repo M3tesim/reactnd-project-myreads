@@ -1,8 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import './App.css'
 import Library from './library'
+import Search from './search'
+import * as BooksAPI from './BooksAPI'
 
 
 
@@ -10,7 +11,45 @@ class BooksApp extends React.Component {
 
 
  
+  state={
+    
+    books:[]
+}
 
+
+
+
+// list all  books that app have 
+    
+Booklist = async ()=>{
+    const books = await BooksAPI.getAll();
+    this.setState(()=> (
+    { books : books }
+
+                    ))};
+
+
+// ubdate the book's shelf and add it to the app data
+  UbdateShelf= async (book, shelf) => {
+    await  BooksAPI.update(book, shelf).then(books => {
+        const updateShelf = this.state.books.map(c => {
+          if (c.id === book.id) {
+            c.shelf = shelf
+          }
+          return c;
+        });
+  
+        this.setState({
+          books: updateShelf,
+        });
+        
+  
+      })}
+
+// dynamicly ubdate the page content 
+      componentDidMount = () => {
+        this.Booklist();
+      }
 
                         
 
@@ -21,32 +60,10 @@ class BooksApp extends React.Component {
       <div className="app">
          
         <Route path='/search' render={()=>(
-           
-            <div className="search-books">
-              <div className="search-books-bar">
-                <Link className="close-search" to={'./'}>Close</Link>
-                <div className="search-books-input-wrapper">
-                  {/*
-                    NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                    You can find these search terms here:
-                    https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-  
-                    However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                    you don't find a specific author or title. Every search is limited by search terms.
-                  */}
-                  <input type="text" placeholder="Search by title or author"/>
-  
-                </div>
-              </div>
-              <div className="search-books-results">
-                <ol className="books-grid"></ol>
-              </div>
-            </div>
-          
-        )}/>
+           <Search    ubdate={this.UbdateShelf}   /> )}/>
 
-       <Route exact path='/' component={
-         Library} />
+       <Route exact path='/' render={()=>(
+         <Library   books={this.state.books} ubdate={this.UbdateShelf} /> )} />
          
         
       </div>

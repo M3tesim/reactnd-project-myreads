@@ -12,20 +12,29 @@ state={
 }
 
 
- SearchBar = async(e)=> {
-     const query= e.target.value ;
-   await BooksAPI.search(query).then(books=>(
+
+
+ SearchBar = async(query)=> {
+   console.log(query)
+     if (query.length > 0) {
+   await BooksAPI.search(query).then(searshResult=>{
+    
+
     this.setState(()=>({
         value: query ,
-        books
+        books:searshResult
     
         }))
-   ))
-    
+      })
 
-    console.log(this.state)
-
+  }else {
+     this.setState({ books: [] ,
+      value:''   }
+      )}
 }
+
+
+
 
 
 
@@ -36,16 +45,20 @@ state={
             <div className="search-books-bar">
               <Link className="close-search" to={'./'}>Close</Link>
               <div className="search-books-input-wrapper">
-                
-                  <BookList books={this.state.books} ubdate={this.props.ubdate}  />
 
-                
-                <input type="text" placeholder="Search by title or author" value={this.state.value}  onChange={this.SearchBar}/>
+                                
+                <input type="text" placeholder="Search by title or author" value={this.state.value}  onChange={(e)=>this.SearchBar(e.target.value)}/>
 
               </div>
+
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">
+
+              <BookList appbooks={this.props.appbooks} books={this.state.books} ubdate={this.props.ubdate}   />
+
+
+              </ol>
             </div>
           </div>
         )

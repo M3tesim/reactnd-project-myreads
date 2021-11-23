@@ -60,10 +60,10 @@ Booklist = async ()=>{
       <div className="app">
          
         <Route path='/search' render={()=>(
-           <Search    ubdate={this.UbdateShelf}   /> )}/>
+           <Search  appbooks={this.state.books}  ubdate={this.UbdateShelf}   /> )}/>
 
        <Route exact path='/' render={()=>(
-         <Library   books={this.state.books} ubdate={this.UbdateShelf} /> )} />
+         <Library appbooks={this.state.books}  books={this.state.books} ubdate={this.UbdateShelf} /> )} />
          
         
       </div>

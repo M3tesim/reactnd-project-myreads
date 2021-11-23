@@ -22,7 +22,7 @@ class BookShelf extends Component {
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">{shelf.toUpperCase()}</h2>
 
-                  <BookList books={bookshelf} ubdate={this.props.ubdate} shelf= {shelf.replace(/\s/g, "")} />
+                  <BookList appbooks={this.props.appbooks} books={bookshelf} ubdate={this.props.ubdate}  />
 
 
                 </div>

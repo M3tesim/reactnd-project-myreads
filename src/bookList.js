@@ -12,14 +12,10 @@ class BookList extends Component {
 
             <div className="bookshelf-books">
             <ol className="books-grid"> 
-
-              {books.map((book)=>(
-                      <li key={book.id}>
-                      <Book book={book}  ubdate={ubdate} shelf={shelf} />
-                    </li> 
-
-
-                 ))}
+    
+    {books.length> 0?  books.map((book)=>(
+        
+    <li key={book.id}> <Book  appbooks={this.props.appbooks} book={book}  ubdate={ubdate} shelf={shelf} /> </li>)) : "no result"}
 
              </ol>
                   
@@ -27,6 +23,8 @@ class BookList extends Component {
         )
     }
 }
+
+
 
 
 export default BookList ;

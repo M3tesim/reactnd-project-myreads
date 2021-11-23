@@ -1,5 +1,4 @@
-import React, { Component, useDebugValue } from 'react'
-
+import React, { Component } from 'react'
 class Book extends Component {
 
   
@@ -9,17 +8,51 @@ class Book extends Component {
 
      render() {
 
-    
 
-      const {book}=this.props
+      const {book,appbooks}=this.props
+
+      appbooks.map(b=>(
+        b.id === book.id ? book.shelf=b.shelf:book.shelf=book.shelf
+      ))
+
+
+      let imgURL 
+      try {
+        imgURL=`url(${book.imageLinks.smallThumbnail })`
+
+      }
+      catch(e){
+        try{
+          imgURL=`url(${book.imageLinks.Thumbnail })`
+
+        }
+        catch(e){
+          imgURL= ""
+
+        }
+      }  
+
+
+      let authors 
+      try {
+
+        if(authors=book.authors) throw  authors="Unkowen authors";
+        
+      }catch(e){
+       authors=""
+
+      }
+     
+      
+    
      
         return(
 
             <div className="book">
                           <div className="book-top">
-                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: imgURL }}></div>
                             <div className="book-shelf-changer">
-                              <select onChange={this.handleChange}  value={this.props.shelf} >
+                              <select onChange={this.handleChange}  value={book.shelf} >
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>

@@ -3,10 +3,9 @@
 This is is a project done for the final assessment project for Udacity's React Fundamentals course.
 it is a single page app that allow you to categories your books to three section (my reading , want to read and read)
 you can search new books from a bookAPI and add new books to the shelf
+you can view  project online here https://libraryforlearn.netlify.app/
 
-## TL;DR
-
-To get started right away:
+##  To get started right away:
 
 - install all project dependencies with `npm install`
 - start the development server with `npm start`
@@ -43,7 +42,7 @@ To get started right away:
 
 ## Backend Server
 
-The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods  to perform necessary operations on the backend:
 
 - [`getAll`](#getall)
 - [`update`](#update)

@@ -1,8 +1,8 @@
 # MyReads Project
 
-This is is a project done for the final assessment project for Udacity's React Fundamentals course.
 it is a single page app that allow you to categories your books to three section (my reading , want to read and read)
-you can search new books from a bookAPI and add new books to the shelf
+you can search new books from a bookAPI and add new books to the shelfs
+live preview https://reactnd-project-myreads-nine.vercel.app
 
 ##  To get started right away:
 
